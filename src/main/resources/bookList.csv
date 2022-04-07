@@ -1,0 +1,7 @@
+title,isbn,price,genre,pageCount
+expensiveBook,978-3608963762,EUR 99.99,Adventure,99
+expensiveComic,978-3608963762,EUR 120.00,Comic,99
+cheapBook,978-3841335180,EUR 1.00,Biography,10
+fantasyBook,978-3841335180,EUR 30.00,Fantasy,100
+fantasyBook2,978-3841335180,EUR 40.00,Fantasy,200
+

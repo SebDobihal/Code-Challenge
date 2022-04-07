@@ -1,0 +1,10 @@
+ISBN,validation,price,genre,pageCount
+978-3608963762,true,EUR30.00,Adventure,20
+978-3442267747,false,EUR30.00,Adventure,30
+978-758245159,false,EUR30.00,Adventure,40
+978-3841335180,true,EUR30.00,Biography,50
+978-3442267819,false,EUR10.66,Adventure,60
+956-1536456494,false,EUR10.00,Adventure,70
+979-1536456494,false,EUR10.00,Adventure,80
+#978-3608963762,false,EUR30.00,Adventure,20alsNegativetest
+978-360896 3762,true,EUR30.00,Adventure,20
