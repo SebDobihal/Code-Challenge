@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static codechallenge.utils.testUtils.getTestBooksFromCSV;
+import static codechallenge.utils.testUtils.importBooks;
 import static codechallenge.utils.testUtils.provideTestBooksForShop;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,7 +28,7 @@ class ShopTest {
         testShop = new Shop("myTestShop", euro);
         testCustomerRich = new Customer("testerRich", Money.parse(euro + " 5000"));
         testCustomerPoor = new Customer("testerPoor", Money.parse(euro + " 1"));
-        testBooks = getTestBooksFromCSV();
+        testBooks = importBooks();
     }
 
     @AfterEach
