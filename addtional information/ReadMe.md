@@ -9,6 +9,11 @@ versions are specified in the POM.
 
 Regarding my Solution:
 
+The main class is empty, more or less on purpose, because this assignment
+did not provide a specific question that could have been answered. 
+And creating a scenario, just to fill up the main class, seemed pointless to me especially when Unit tests
+are better suited to proof functionality of code.
+
 1. Verkauf eines bestimmten Buches von einem Shop an einen Kunden:
 
    Is handled inside the Shop, with the sellBook method. The book will only
