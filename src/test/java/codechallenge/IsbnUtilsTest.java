@@ -10,7 +10,7 @@ class IsbnUtilsTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/main/resources/IsbnTestValues.csv", numLinesToSkip = 1)
-    void testIsValidIsbn(String number, boolean expectedResult) {
+    void testIsValidIsbnWithDifferentIsbn(String number, boolean expectedResult) {
         assertEquals(expectedResult, isValidIsbn(number));
     }
 }

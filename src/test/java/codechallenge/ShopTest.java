@@ -11,8 +11,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static codechallenge.utils.testUtils.importBooks;
-import static codechallenge.utils.testUtils.provideTestBooksForShop;
+import static codechallenge.utils.UtilsForTests.importBooks;
+import static codechallenge.utils.UtilsForTests.provideTestBooksForShop;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShopTest {
@@ -40,8 +40,7 @@ class ShopTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/main/resources/IsbnTestValues.csv", numLinesToSkip = 1)
-    void testAddBook(String isbn, boolean hasValidIsbn, String priceCSV, BookGenres genre, int pageCount) {
-
+    void testAddBookWithDifferentIsbn(String isbn, boolean hasValidIsbn, String priceCSV, BookGenres genre, int pageCount) {
         Money price = Money.parse(priceCSV);
         String bookTitle = "test: " + hasValidIsbn;
         Book testBook = new Book(bookTitle, isbn, price, genre, pageCount);
@@ -52,15 +51,13 @@ class ShopTest {
         String testBookTitle = testBook.getTitle();
 
         for (Book book : availableBooks) {
-
             String addedBookTitle = book.getTitle();
-
             assertFalse(addedBookTitle.contains("false"), "testBookTitle was :" + testBookTitle);
         }
     }
 
     @Test
-    void testSellBookToPoorCustomer() {
+    void testSellBookToPoorCustomerShouldNotSell() {
         provideTestBooksForShop(testShop, testBooks);
         assertTrue(testCustomerPoor.getBooks().isEmpty());
 
@@ -73,10 +70,9 @@ class ShopTest {
     }
 
     @Test
-    void testSellCheapBookToRichCustomer() {
+    void testSellCheapBookToRichCustomerShoulSell() {
         provideTestBooksForShop(testShop, testBooks);
         Money salesVolumeBefore = testShop.getSalesVolume();
-
         Book expensiveComic = testShop.findBookByTitle("expensiveComic");
 
         assertTrue(testCustomerRich.getBooks().isEmpty());

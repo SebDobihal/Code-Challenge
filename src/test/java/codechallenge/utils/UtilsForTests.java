@@ -7,7 +7,6 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.joda.money.Money;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import static codechallenge.utils.HeadersCsv.*;
 
-public class testUtils {
+public class UtilsForTests {
     //part of the possible validation structure
     private static ArrayList<String> brokenRecords;
     

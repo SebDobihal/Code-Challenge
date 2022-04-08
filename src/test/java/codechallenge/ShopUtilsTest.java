@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static codechallenge.utils.ShopUtils.compareShops;
-import static codechallenge.utils.testUtils.*;
+import static codechallenge.utils.UtilsForTests.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShopUtilsTest {
 
     @Test
-    void testCompareShopsValid() throws IOException {
+    void testCompareShopsWithIdenticalOffers() throws IOException {
         Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
         Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
         ArrayList<Book> testBooks = importBooks();
@@ -26,7 +26,7 @@ class ShopUtilsTest {
     }
 
     @Test
-    void testCompareShopsNotValid() throws IOException {
+    void testCompareShopsIfShopsHaveDifferentOffers() throws IOException {
         Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
         Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
         ArrayList<Book> testBooks = importBooks();
@@ -44,7 +44,7 @@ class ShopUtilsTest {
     }
 
     @Test
-    void testCompareShopsOnBareShops() {
+    void testCompareShopsOnShopsWithoutAnyOffers() {
         Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
         Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
 
