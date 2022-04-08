@@ -66,7 +66,7 @@ public class Shop {
 
     public void sellBook(Book book, Customer customer) {
         Money bookPrice = book.getPrice();
-        boolean hasEnoughMoney = customer.hasMoreMoneyThan(bookPrice);
+        boolean hasEnoughMoney = customer.hasMoreMoneyThanOrTheSame(bookPrice);
 
         if (isAvailable(book) && hasEnoughMoney) {
             updateQuantity(book, -1);

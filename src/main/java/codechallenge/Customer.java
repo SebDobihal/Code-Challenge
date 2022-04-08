@@ -15,8 +15,10 @@ public class Customer {
         this.amountOfMoney = amountOfMoney;
     }
 
-    public boolean hasMoreMoneyThan(Money payment) {
-        return this.amountOfMoney.isGreaterThan(payment);
+    public boolean hasMoreMoneyThanOrTheSame(Money payment) {
+        boolean hasMoreThan = this.amountOfMoney.isGreaterThan(payment);
+        boolean hasEqualTo = this.amountOfMoney.isEqual((payment));
+        return hasMoreThan|| hasEqualTo;
     }
 
     public void addBook(Book book) {
