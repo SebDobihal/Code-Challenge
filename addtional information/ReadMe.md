@@ -10,6 +10,7 @@ versions are specified in the POM.
 Regarding my Solution:
 
 1. Verkauf eines bestimmten Buches von einem Shop an einen Kunden:
+
    Is handled inside the Shop, with the sellBook method. The book will only
    be sold if:
    - the shop has it in its inventory 
@@ -20,6 +21,7 @@ Regarding my Solution:
 
 
 2. Filtern von Büchern: 
+
    is handled inside the Shop class as well, by the
    filterBooksByGenre method. I put the method there because of the encapsulation
    of information of the shop. A costumer is not needed for this
@@ -27,6 +29,7 @@ Regarding my Solution:
     
 
 3. Entfernen von Duplikaten:
+
    is not needed in my Solution, because a shop uses a Map instead of a List 
    to handle their inventory. Which has plenty of perks:
    - no duplicates
@@ -41,13 +44,16 @@ Regarding my Solution:
 
 
 4. Vergleich:
+
    is handled inside the ShopUtils class, by the compareShops method.
    I decided against placing this method in the costumer class as
    the exercise implies, because even if the wish for this
    method is coming from the costumer, the method has applications outside the need
    for a shop or customer object to call it. => Utils
 
-5. Bücher hinzufügen
+
+5. Bücher hinzufügen:
+
    is handled inside the shop class, by the method addBook. Which uses
    the isValidIsbn method of the IsbnUtils class. I separated the
    validation because it has many more applications, which are not connected to a Shop.
@@ -56,5 +62,3 @@ Regarding my Solution:
    if books with malformed ISBN couldn't / shouldn't exist. 
    But this means the ISBN isn't enough, in this context, to identify a book by itself.
    So I needed to check more than attribute in the equals-method of book.
-
-
