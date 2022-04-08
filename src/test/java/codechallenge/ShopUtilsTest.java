@@ -7,22 +7,49 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static codechallenge.utils.ShopUtils.compareShops;
-import static codechallenge.utils.testUtils.importBooks;
-import static codechallenge.utils.testUtils.provideTestBooksForShop;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static codechallenge.utils.testUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ShopUtilsTest {
 
     @Test
-    void testCompareShops() throws IOException {
+    void testCompareShopsValid() throws IOException {
         Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
         Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
         ArrayList<Book> testBooks = importBooks();
         ArrayList<Book> testBooks2 = importBooks();
+
         provideTestBooksForShop(testShopA, testBooks);
         provideTestBooksForShop(testShopB, testBooks2);
 
         assertTrue(compareShops(testShopA, testShopB));
-
     }
+
+    @Test
+    void testCompareShopsNotValid() throws IOException {
+        Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
+        Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
+        ArrayList<Book> testBooks = importBooks();
+        ArrayList<Book> testBooks2 = importBooks();
+
+        provideTestBooksForShop(testShopA, testBooks);
+        provideTestBooksForShop(testShopB, testBooks2);
+
+        Book cleanCodeBook = provideCleanCodeBook();
+        testShopA.addBook(cleanCodeBook);
+
+        assertFalse(compareShops(testShopA, testShopB));
+        assertTrue(testShopA.getAvailableBooks().contains(cleanCodeBook));
+        assertFalse(testShopB.getAvailableBooks().contains(cleanCodeBook));
+    }
+
+    @Test
+    void testCompareShopsOnBareShops() {
+        Shop testShopA = new Shop("shopA", CurrencyUnit.EUR);
+        Shop testShopB = new Shop("shopB", CurrencyUnit.EUR);
+
+        assertTrue(compareShops(testShopA, testShopB));
+    }
+
+
 }
